@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.bar{
+				line-height: 45px;
+				height: 45px;
+				color: white;
+				text-align: center;
+				background-color: lightpink;
+				
+			}
+		</style>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<bar>购物商城</bar>
+			<hr/>
+			<bar>商品分类</bar>
+		</div>
+		<template id="tmp">
+			<div class="bar">
+				<div class="left"></div>
+				<div class="center">
+					<slot></slot>
+				</div>
+				<div class="right"></div>
+			</div>
+		</template>
+		<script>
+			let vm =new Vue({
+				el:"#app",
+				components:{
+					bar:{
+						template:"#tmp"
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

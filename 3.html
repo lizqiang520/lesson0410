@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+		<link href="css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div id="app">
+			<vue-photos :photos="photos"></vue-photos>
+		</div>
+		
+		<template id="photoTemplate">
+			<div class="gallery">
+			   <!--大图展示区-->
+			  <div class="activePhoto" :style="'background-image: url('+photos[activePhoto]+');'">
+			    <button type="button" class="previous">
+			     <a id="left_img_btn" class="s_pre" href="javascript:void(0)"></a>
+			    </button>
+			    <button type="button" class="next">
+			      <a id="right_img_btn" class="s_next" href="javascript:void(0)"></a>
+			    </button>
+			  </div>
+			  <!--缩略图列表展示区-->
+			  <div class="thumbnails">
+				<div
+				     v-for="(photo, index) in photos"
+				     :key="index"
+					  :class="{'active': activePhoto== index}" 
+					 @click="changePhoto(index)"
+				     :style="'background-image: url('+photo+')'">
+				</div>
+			  </div>
+			</div>
+		</template>
+		
+		
+		<script>
+			let vm =new Vue({
+				el:"#app",
+				data:{
+					photos:[
+					    'img/001.jpg','img/002.jpg','img/003.jpg',
+					    'img/004.jpg','img/005.jpg','img/006.jpg',
+					    'img/007.jpg','img/008.jpg','img/009.jpg'
+					]
+				},
+				components:{
+					vuePhotos:{
+						template:"#photoTemplate",
+						props:["photos"],
+						data(){
+							return {
+								activePhoto:0
+							}
+						},
+						methods:{
+							changePhoto (index) {
+								
+							    this.activePhoto = index
+							}
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

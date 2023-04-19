@@ -1,0 +1,40 @@
+body{
+	background-color: #5c4090;
+	padding: 20px;
+}
+#app{
+	width: 800px;
+	margin: 0 auto;
+	border-radius: 8px;
+	background-color: #fff;
+	box-shadow: 0 5px 8px #0000007a;
+	 padding: 6px;
+}
+
+.activePhoto{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 500px;
+	border: 2px solid #fff;
+}
+.gallery .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 120px);
+    grid-gap: 5px;
+}
+.gallery .thumbnails div {
+    width: 100%;
+    border: 2px solid #fff;
+    outline: 2px solid #fff;
+    cursor: pointer;
+    padding-bottom: 65%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+.thumbnails div.active{
+    outline-color: #5c4084;
+    opacity: 1;
+}

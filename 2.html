@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.bar{
+				line-height: 45px;
+				height: 45px;
+				color: white;
+				text-align: center;
+				background-color: lightpink;
+				display: flex;
+			}
+			.bar>div{
+				flex: 1;
+			}
+		</style>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<bar>
+				<span slot="mm">购物商城</span>
+			</bar>
+			<hr/>
+			<bar>
+				
+				<span slot="mm">商品分类</span>
+			</bar>
+			<hr/>
+			<bar>
+				<span slot="ll">< </span>
+				<span slot="mm">秋款上市</span>
+				<img width="30" src="img/shop.jpg" slot="rr" />
+			</bar>
+		</div>
+		<template id="tmp">
+			<div class="bar">
+				<div class="left" style="text-align: left;">
+					<slot name="ll"></slot>
+				</div>
+				<div class="center" >
+					<slot name="mm"></slot>
+				</div>
+				<div class="right" style="text-align: right;" >
+					<slot name="rr"></slot>
+				</div>
+			</div>
+		</template>
+		<script>
+			let vm =new Vue({
+				el:"#app",
+				components:{
+					bar:{
+						template:"#tmp"
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>
